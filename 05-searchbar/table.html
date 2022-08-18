@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css">   
+   
+     <style>
+        table,th,td{
+            text-align: center;
+        }
+
+        h2{
+            text-align: center;
+        }
+        #myInput{
+     margin-left: 15%;
+     padding:15px;
+     border-radius: 10px;
+     background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+        }
+ #myTable{
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+  font-size: 18px; /* Increase font-size */
+ }
+   
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 style="text-transform: uppercase; color: green;">
+                    My Table
+               </h2>
+            </div>
+            <div class="form">
+                <center>
+                    <input type="text" name="" id="myInput" onkeyup="search()" 
+                    placeholder="names...." class="form-control">
+                
+                    </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <table id="myTable"  class="table table-hover table-bordered table-striped">
+                    <thead class="header">
+                        <tr>
+                          <th style="width:40%">Name</th>
+                          <th style="width:30%">Degree</th>
+                          <th style="width:30%">Profession</th>
+                          </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td>Vinod</td>
+                      <td>MCS</td>
+                      <td>Full Stack Developer</td>
+                    </tr>
+                    <tr>
+                      <td>Bahadur</td>
+                      <td>BBA</td>
+                      <td>HR Manager</td>
+                    </tr>
+                    <tr>
+                      <td>Thapa</td>
+                      <td>BCS</td>
+                      <td>Front End Developer</td>
+                    </tr>
+                    <tr>
+                      <td>Arjun</td>
+                      <td>BCA</td>
+                      <td>Front End Developer</td>
+                    </tr>
+                    <tr>
+                      <td>Ramesh</td>
+                      <td>MCS</td>
+                      <td>Full Stack Developer</td>
+                    </tr>
+                    <tr>
+                      <td>Ram</td>
+                      <td>BCA</td>
+                      <td>Full Stack Developer</td>
+                    </tr>
+                    <tr>
+                      <td>Amrit</td>
+                      <td>BCS</td>
+                      <td>Front End Developer</td>
+                    </tr>
+                    <tr>
+                      <td>Naman</td>
+                      <td>BCA</td>
+                      <td>Full Stack Developer</td>
+                    </tr>
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        const search=()=>{
+
+        
+        var input, filter, myTable, tr, td, i, textValue;
+input = document.getElementById("myInput");
+filter=input.value.toUpperCase();
+
+myTable = document.getElementById("myTable");
+
+tr = myTable.getElementsByTagName("tr");
+
+for(var i=0; i<tr.length; i++)
+ {
+    td = tr[i].getElementsByTagName("td")[0];
+    if(td)
+    {
+        textvalue = td.textContent || td.innerText;
+        if(textvalue.toUpperCase().indexOf(filter)>-1)
+        {
+                  tr[i].style.display="";
+        }
+        else
+        {
+            tr[i].style.display="none";
+        }
+        
+    }
+ }
+        }
+    </script> 
+</body>
+
+</html>
